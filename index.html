@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Briana Luisa · Mis 2 añitos</title>
+<meta name="description" content="Invitación digital de cumpleaños de Briana Luisa Ramírez Patiño">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-flower">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="loader-text">preparando la magia...</p>
+  </div>
+</div>
+
+<!-- ================= CANVAS DE FONDO (partículas) ================= -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Capa de elementos flotantes CSS (corazones, estrellas, mariposas, flores) -->
+<div id="floating-layer" aria-hidden="true"></div>
+
+<!-- ================= CONFETI DE ENTRADA ================= -->
+<div id="confetti-layer" aria-hidden="true"></div>
+
+<!-- Cursor personalizado -->
+<div id="custom-cursor"></div>
+<div id="custom-cursor-ring"></div>
+
+<main>
+
+  <!-- ================= PORTADA / HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+
+    <div class="reveal medal-wrap" data-reveal="zoom">
+      <div class="medallion">
+        <div class="medallion-ring"></div>
+        <div class="medallion-sparkles">
+          <span class="sparkle s1">✦</span>
+          <span class="sparkle s2">✧</span>
+          <span class="sparkle s3">✦</span>
+          <span class="sparkle s4">✧</span>
+        </div>
+        <div class="medallion-deco left">🎈</div>
+        <div class="medallion-deco right">🎈</div>
+        <div class="medallion-deco top">👑</div>
+        <div class="medallion-deco bottom">🌸</div>
+        <div class="balloon balloon-left">🎈</div>
+        <div class="balloon balloon-right">🎈</div>
+        <div class="side-photo side-photo-left">
+          <img src="3.jpeg" alt="Briana Luisa acompañando la portada">
+        </div>
+        <div class="photo-frame">
+          <img src="imagen.jpeg" alt="Briana Luisa">
+        </div>
+        <div class="side-photo side-photo-right">
+          <img src="7.jpeg" alt="Briana Luisa en la portada">
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal invitation-line" data-reveal="fade">
+      <div class="pet-pointer" aria-hidden="true">
+        <div class="cat-body">
+          <div class="cat-ear ear-left"></div>
+          <div class="cat-ear ear-right"></div>
+          <div class="cat-head"></div>
+          <div class="cat-eye eye-left"></div>
+          <div class="cat-eye eye-right"></div>
+          <div class="cat-nose"></div>
+          <div class="cat-mouth"></div>
+          <div class="cat-tail"></div>
+          <div class="cat-leg leg-left"></div>
+          <div class="cat-leg leg-right"></div>
+        </div>
+      </div>
+      <p class="eyebrow">Estás cordialmente invitado</p>
+    </div>
+
+    <h1 class="reveal hero-name" data-reveal="fade-slide">Briana Luisa<br><span>Ramírez Patiño</span></h1>
+
+    <p class="reveal hero-sub" data-reveal="fade-slide">Celebra conmigo mis <strong>2 añitos</strong></p>
+
+    <p class="reveal hero-phrase" data-reveal="fade">
+      "Tu presencia hará que este día sea aún más especial."
+    </p>
+
+    <div class="scroll-hint reveal" data-reveal="fade">
+      <span class="scroll-dot"></span>
+      <small>desliza para descubrir más</small>
+    </div>
+  </section>
+
+  <!-- ================= CONTADOR ================= -->
+  <section class="section countdown-section" id="countdown">
+    <h2 class="reveal section-title" data-reveal="fade-slide">Falta muy poquito…</h2>
+    <div class="reveal countdown" data-reveal="scale" id="countdown-timer">
+      <div class="time-box">
+        <span class="time-num" id="cd-days">00</span>
+        <span class="time-label">días</span>
+      </div>
+      <div class="time-box">
+        <span class="time-num" id="cd-hours">00</span>
+        <span class="time-label">horas</span>
+      </div>
+      <div class="time-box">
+        <span class="time-num" id="cd-minutes">00</span>
+        <span class="time-label">min</span>
+      </div>
+      <div class="time-box">
+        <span class="time-num" id="cd-seconds">00</span>
+        <span class="time-label">seg</span>
+      </div>
+    </div>
+    <p class="reveal today-message" data-reveal="fade" id="today-message" hidden>¡Hoy es el gran día! 🎉</p>
+  </section>
+
+  <!-- ================= DETALLES ================= -->
+  <section class="section details-section" id="detalles">
+    <h2 class="reveal section-title" data-reveal="fade-slide">Detalles del festejo</h2>
+
+    <div class="cards-grid">
+      <div class="reveal detail-card" data-reveal="fade-slide" data-delay="0">
+        <div class="card-icon">📅</div>
+        <h3>Fecha</h3>
+        <p>18 de julio</p>
+      </div>
+
+      <div class="reveal detail-card" data-reveal="fade-slide" data-delay="1">
+        <div class="card-icon">🕔</div>
+        <h3>Hora</h3>
+        <p>5:00 PM</p>
+      </div>
+
+      <div class="reveal detail-card" data-reveal="fade-slide" data-delay="2">
+        <div class="card-icon">📍</div>
+        <h3>Lugar</h3>
+        <p>Barrio Wichaypampa Zona B<br>Frente a la cancha Bombonera<br>Challhuahuacho</p>
+      </div>
+    </div>
+
+    <div class="reveal cta-row" data-reveal="fade">
+      <a class="btn btn-primary" id="whatsapp-btn" href="https://wa.me/51994833757?text=Confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Briana%20Luisa%20%F0%9F%8E%89" target="_blank" rel="noopener">
+        <span class="btn-icon">💬</span> Confirmar asistencia por WhatsApp
+      </a>
+      <a class="btn btn-secondary" id="location-btn" href="#mapa">
+        <span class="btn-icon">📍</span> Ver ubicación
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= FAMILIA ================= -->
+  <section class="section family-section" id="familia">
+    <div class="family-block reveal" data-reveal="fade-slide">
+      <p class="family-label">Padres</p>
+      <p class="family-name">Andrea Luisa Ramírez Patiño</p>
+      <p class="family-name">Evert Ramírez Nina</p>
+    </div>
+
+    <div class="family-divider" aria-hidden="true">
+      <span>✦</span>
+    </div>
+
+    <div class="family-block reveal" data-reveal="fade-slide">
+      <p class="family-label">Padrinos de corte de pelo</p>
+      <p class="family-name">German Samuel Segovia</p>
+      <p class="family-name">Nayda Quispe Ramos</p>
+    </div>
+  </section>
+
+  <!-- ================= GALERÍA ================= -->
+  <section class="section gallery-section" id="galeria">
+    <h2 class="reveal section-title" data-reveal="fade-slide">Momentos para recordar</h2>
+    <p class="reveal section-subtitle" data-reveal="fade">Un vistazo a sus primeros dos años</p>
+
+    <div class="gallery-grid">
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="0">
+        <img src="2.jpeg" alt="Briana Luisa en un momento especial">
+      </div>
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="1">
+        <img src="3.jpeg" alt="Briana Luisa con ternura">
+      </div>
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="2">
+        <img src="4.jpeg" alt="Briana Luisa en familia">
+      </div>
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="3">
+        <img src="5.jpeg" alt="Briana Luisa celebrando">
+      </div>
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="4">
+        <img src="6.jpeg" alt="Briana Luisa con dulzura">
+      </div>
+      <div class="reveal gallery-item" data-reveal="scale" data-delay="5">
+        <img src="7.jpeg" alt="Briana Luisa en un día especial">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAPA ================= -->
+  <section class="section map-section" id="mapa">
+    <h2 class="reveal section-title" data-reveal="fade-slide">¿Cómo llegar?</h2>
+    <p class="reveal section-subtitle" data-reveal="fade">Barrio Wichaypampa Zona B, frente a la cancha Bombonera, Challhuahuacho</p>
+
+    <div class="reveal map-frame" data-reveal="scale">
+      <iframe
+        title="Ubicación del evento"
+        src="https://www.google.com/maps?q=Challhuahuacho,Peru&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="reveal cta-row" data-reveal="fade">
+      <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Challhuahuacho+Peru" target="_blank" rel="noopener">
+        <span class="btn-icon">🗺️</span> Abrir Google Maps
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-script">Con todo mi cariño,</p>
+    <p class="footer-name">Briana Luisa 🎀</p>
+  </footer>
+
+</main>
+
+<!-- ================= OSITO ANIMADO ================= -->
+<div id="bear-stage" aria-hidden="true">
+  <div id="bear">
+    <svg viewBox="0 0 160 140" width="90" height="80">
+      <ellipse cx="80" cy="128" rx="46" ry="8" fill="rgba(93,70,54,0.12)"/>
+      <g id="bear-arm-left" class="bear-arm-left">
+        <ellipse cx="34" cy="82" rx="12" ry="20" fill="#C69B6D"/>
+      </g>
+      <g id="bear-leg-left" class="bear-leg-left">
+        <ellipse cx="58" cy="118" rx="13" ry="16" fill="#B88A5C"/>
+      </g>
+      <g id="bear-leg-right" class="bear-leg-right">
+        <ellipse cx="102" cy="118" rx="13" ry="16" fill="#B88A5C"/>
+      </g>
+      <ellipse cx="80" cy="80" rx="42" ry="38" fill="#D9AE7E"/>
+      <circle cx="46" cy="34" r="15" fill="#D9AE7E"/>
+      <circle cx="114" cy="34" r="15" fill="#D9AE7E"/>
+      <circle cx="46" cy="34" r="7" fill="#F3D9BB"/>
+      <circle cx="114" cy="34" r="7" fill="#F3D9BB"/>
+      <circle cx="80" cy="62" r="30" fill="#EAC79A"/>
+      <ellipse cx="80" cy="72" rx="13" ry="10" fill="#F6E6CE"/>
+      <circle cx="80" cy="68" r="4.5" fill="#5B4636"/>
+      <circle cx="66" cy="56" r="3.4" fill="#5B4636" class="bear-eye"/>
+      <circle cx="94" cy="56" r="3.4" fill="#5B4636" class="bear-eye"/>
+      <path d="M72 76 Q80 82 88 76" stroke="#5B4636" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="80" cy="100" rx="20" ry="16" fill="#F6E6CE"/>
+      <g id="bear-arm-right" class="bear-arm-right">
+        <ellipse cx="126" cy="82" rx="12" ry="20" fill="#C69B6D"/>
+      </g>
+    </svg>
+  </div>
+  <div id="bear-bubble">¡Confirma tu asistencia! 👉</div>
+</div>
+
+<div id="bunny-stage" aria-hidden="true">
+  <div id="bunny">
+    <svg viewBox="0 0 160 150" width="78" height="78">
+      <ellipse cx="80" cy="132" rx="44" ry="7" fill="rgba(93,70,54,0.12)"/>
+      <!-- orejas largas -->
+      <ellipse class="bunny-ear-left" cx="58" cy="18" rx="10" ry="34" fill="#F2C6CE"/>
+      <ellipse class="bunny-ear-left" cx="58" cy="18" rx="5" ry="24" fill="#FBE4E9"/>
+      <ellipse class="bunny-ear-right" cx="102" cy="18" rx="10" ry="34" fill="#F2C6CE"/>
+      <ellipse class="bunny-ear-right" cx="102" cy="18" rx="5" ry="24" fill="#FBE4E9"/>
+      <g class="bunny-arm-left">
+        <ellipse cx="36" cy="86" rx="11" ry="18" fill="#F2C6CE"/>
+      </g>
+      <g class="bunny-leg-left">
+        <ellipse cx="58" cy="120" rx="12" ry="15" fill="#EBB4C0"/>
+      </g>
+      <g class="bunny-leg-right">
+        <ellipse cx="102" cy="120" rx="12" ry="15" fill="#EBB4C0"/>
+      </g>
+      <ellipse cx="80" cy="84" rx="40" ry="36" fill="#F7D9DE"/>
+      <ellipse cx="80" cy="66" rx="29" ry="28" fill="#FBEAEE"/>
+      <ellipse cx="66" cy="60" rx="3.2" ry="3.6" fill="#5B4636" class="bunny-eye"/>
+      <ellipse cx="94" cy="60" rx="3.2" ry="3.6" fill="#5B4636" class="bunny-eye"/>
+      <ellipse cx="80" cy="70" rx="4" ry="3" fill="#D98CA0"/>
+      <path d="M72 78 Q80 84 88 78" stroke="#5B4636" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="80" cy="104" rx="19" ry="15" fill="#FBEAEE"/>
+      <g class="bunny-arm-right">
+        <ellipse cx="124" cy="86" rx="11" ry="18" fill="#F2C6CE"/>
+      </g>
+    </svg>
+  </div>
+  <div id="bunny-bubble">¡Sigue bajando! 👇</div>
+</div>
+
+<!-- Música de fondo que inicia automáticamente al ingresar -->
+<audio id="bg-music" src="musica.mpeg" loop autoplay muted preload="auto" playsinline></audio>
+
+<!-- ================= LIGHTBOX GALERÍA ================= -->
+<div id="lightbox">
+  <div id="lightbox-content"></div>
+  <button id="lightbox-close" aria-label="Cerrar">✕</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
